@@ -12,9 +12,10 @@ jobs:
       - run:
           name: Run Tests
           command: mvn clean test
+
       - store_artifacts:
           path: target/reports
-          destination: test-results
+          destination: test-result
 workflows:
   build-and-test:
     jobs:
