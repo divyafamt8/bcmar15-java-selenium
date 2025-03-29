@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.5.3
 jobs:
   test-java:
     docker:
@@ -8,6 +10,9 @@ jobs:
       - run:
           name: Run Tests
           command: mvn clean test
+      - store_artifacts:
+          path: target/reports
+          destination: test-results
 workflows:
   build-and-test:
     jobs:
